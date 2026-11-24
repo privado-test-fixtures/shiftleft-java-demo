@@ -12,8 +12,7 @@ public class SignupTracker {
     public void trackSignup(String customerId, String email, String phoneNumber) {
         JSONObject props = new JSONObject();
         props.put("plan", "free");
-        props.put("email", email);
-        props.put("phone", phoneNumber);
+        props.put("email", email.trim());
         JSONObject event = builder.event(customerId, "Signup", props);
         mixpanel.deliver(event);
     }
